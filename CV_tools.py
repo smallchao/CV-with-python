@@ -46,6 +46,24 @@ def read_net_image(url, mode='RGB'):
     elif mode == 'RGB':
         return pil_im
 
+def show_color(im):
+    '''
+    绘制颜色通道
+    INPUT  -> 单张图片
+    '''
+    # im = mpimg.imread('wa_state_highway.jpg')
+    r = im[:,:,0]
+	g = im[:,:,1]
+	b = im[:,:,2]
+
+	f, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(20,10))
+	ax1.set_title('R channel')
+	ax1.imshow(r, cmap='gray')
+	ax2.set_title('G channel')
+	ax2.imshow(g, cmap='gray')
+	ax3.set_title('B channel')
+	ax3.imshow(b, cmap='gray')
+
 def image_process_batch(path):
     '''
     图像批量处理
